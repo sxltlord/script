@@ -1,0 +1,202 @@
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/GreenDeno/Venyx-UI-Library/main/source.lua"))()
+local venyx = library.new("Aincrad Adventures", 5013109572)
+
+
+local themes = {
+Background = Color3.fromRGB(24, 24, 24),
+Glow = Color3.fromRGB(0, 0, 0),
+Accent = Color3.fromRGB(10, 10, 10),
+LightContrast = Color3.fromRGB(20, 20, 20),
+DarkContrast = Color3.fromRGB(14, 14, 14),  
+TextColor = Color3.fromRGB(255, 255, 255)
+}
+
+
+local page1 = venyx:addPage("Race Skill", 5012544693)
+local section1 = page1:addSection("Select Skill Slot")
+local section2 = page1:addSection("Choose Skill")
+
+local SkillSlot = {
+    "RaceSkill1",
+    "RaceSkill2",
+    "RaceSkill3"
+}
+
+section1:addDropdown("Slot", SkillSlot, function(text)
+    getgenv().SkillSlot = text
+end)
+
+local Skill = {
+    "Shadowspikes",
+    "Shadowpool",
+    "Demonblast",
+    "Windclear",
+    "Tornado",
+    "Windentrapment",
+    "Sleepingflute",
+    "Soundblast",
+    "Soundleech",
+    "Roar",
+    "Heartswap",
+    "Beasttransformation"
+}
+
+section2:addDropdown("Skill", Skill, function(text)
+    getgenv().Skill = text
+end)
+
+section2:addButton("Change!", function()
+    local args = {
+        [1] = getgenv().SkillSlot, 
+        [2] = getgenv().Skill
+    }
+    
+    game:GetService("ReplicatedStorage").Inventory.ChangeRaceToolbar:FireServer(unpack(args))
+end)
+
+local page2 = venyx:addPage("Dagger", 5012544693)
+local section1 = page2:addSection("Select Dagger")
+
+local Dagger = {
+    "Treachery",
+    "Scimitar",
+    "Ender",
+    "Sabre",
+    "Ethrel",
+    "Doom"
+}
+
+section1:addDropdown("Dagger", Dagger, function(text)
+    getgenv().Dagger = text
+end)
+
+section1:addButton("Change!", function()
+    local args = {
+        [1] = getgenv().Dagger,
+        [2] = "Dagger",
+        [3] = "None"
+    }
+    
+    game:GetService("ReplicatedStorage").Inventory.EquipWeapon:FireServer(unpack(args))
+end)
+
+local page3 = venyx:addPage("Sword", 5012544693)
+local section1 = page3:addSection("Select Sword")
+
+local Sword = {
+    "Starter Sword",
+    "Beserker",
+    "Anneal",
+    "Galatine",
+    "Repulser",
+    "Elucidator"
+}
+
+section1:addDropdown("Sword", Sword, function(text)
+    getgenv().Sword = text
+end)
+
+section1:addButton("Change!", function()
+    local args = {
+        [1] = getgenv().Sword,
+        [2] = "Sword",
+        [3] = "None"
+    }
+    
+    game:GetService("ReplicatedStorage").Inventory.EquipWeapon:FireServer(unpack(args))
+end)
+
+local page4 = venyx:addPage("Axe", 5012544693)
+local section1 = page4:addSection("Select Axe")
+
+local Axe = {
+    "Thunderguard",
+    "Tyranny",
+    "Mageblade",
+    "Inception",
+    "Mjolnir",
+    "Ritta"
+}
+
+section1:addDropdown("Axe", Axe, function(text)
+    getgenv().Axe = text
+end)
+
+section1:addButton("Change!", function()
+    local args = {
+        [1] = getgenv().Sword,
+        [2] = "Axe",
+        [3] = "None"
+    }
+    
+    game:GetService("ReplicatedStorage").Inventory.EquipWeapon:FireServer(unpack(args))
+end)
+
+local page5 = venyx:addPage("Rapier", 5012544693)
+local section1 = page5:addSection("Select Rapier")
+
+local Rapier = {
+    "Steel",
+    "Moonlit",
+    "Thorn",
+    "Torment",
+    "Divine",
+    "Lambient"
+}
+
+section1:addDropdown("Rapier", Rapier, function(text)
+    getgenv().Rapier = text
+end)
+
+section1:addButton("Change!", function()
+    local args = {
+        [1] = getgenv().Rapier,
+        [2] = "Rapier",
+        [3] = "None"
+    }
+    
+    game:GetService("ReplicatedStorage").Inventory.EquipWeapon:FireServer(unpack(args))
+end)
+
+local page6 = venyx:addPage("Inf money", 5012544693)
+local section1 = page6:addSection("inf money")
+
+section1:addToggle("Inf Money", nil, function(state)
+    getgenv().toggle = state 
+
+while wait(0.1) do
+        if getgenv().toggle == true then
+            local args = {
+                [1] = "MidnightCloak", 
+                [2] = "Armor", 
+                [3] = "None"
+            }
+               while true do 
+                game:GetService("ReplicatedStorage").Inventory.EquipArmor:FireServer(unpack(args))
+                wait (0.1)
+                game:GetService("ReplicatedStorage").Quest.sellarmor:FireServer()
+                end
+        end
+    end
+end)
+
+local page7 = venyx:addPage("Artifact", 5012544693)
+local section1 = page7:addSection("Artifact - Must use in dungeon only! ")
+
+local Artifact = {
+    "Eightgates",
+    "Ultrainstinct",
+}
+
+section1:addDropdown("Artifact", Artifact, function(text)
+    getgenv().Artifact = text
+end)
+
+section1:addButton("Change!", function()
+    local args = {
+        [1] = getgenv().Dagger,
+        [2] = "Artifact",
+        [3] = "None"
+    }
+
+game:GetService("ReplicatedStorage").Inventory.EquipItem:FireServer()
