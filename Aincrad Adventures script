@@ -200,3 +200,4 @@ section1:addButton("Change!", function()
     }
 
 game:GetService("ReplicatedStorage").Inventory.EquipItem:FireServer()
+end)
