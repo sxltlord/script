@@ -201,3 +201,14 @@ section1:addButton("Change!", function()
 
 game:GetService("ReplicatedStorage").Inventory.EquipItem:FireServer()
 end)
+
+local page8 = venyx:addPage("Teleport", 5012544693)
+local section1 = page8:addSection("Teleport to dungeon (Must lvl 80+) ")
+
+section1:addDropdown("Dungeon", Teleport, function()
+    getgenv().Teleport = text
+end)
+
+section1:addButton("Teleport!", function()
+game:GetService("ReplicatedStorage").Quest.floor1bossroom:FireServer()
+end)
