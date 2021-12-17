@@ -162,20 +162,19 @@ local page6 = venyx:addPage("Inf money", 5012544693)
 local section1 = page6:addSection("inf money")
 
 section1:addToggle("Inf Money", nil, function(state)
-    getgenv().toggle = state 
+    getgenv().toggle = state
 
-while wait(0.1) do
+    while wait() do
         if getgenv().toggle == true then
             local args = {
-                [1] = "MidnightCloak", 
-                [2] = "Armor", 
+                [1] = "MidnightCloak",
+                [2] = "Armor",
                 [3] = "None"
             }
-               while true do 
-                game:GetService("ReplicatedStorage").Inventory.EquipArmor:FireServer(unpack(args))
-                wait (0.1)
-                game:GetService("ReplicatedStorage").Quest.sellarmor:FireServer()
-                end
+  
+            game:GetService("ReplicatedStorage").Inventory.EquipArmor:FireServer(unpack(args))
+            wait(0.1)
+            game:GetService("ReplicatedStorage").Quest.sellarmor:FireServer()
         end
     end
 end)
@@ -183,19 +182,19 @@ end)
 local page7 = venyx:addPage("Artifact", 5012544693)
 local section1 = page7:addSection("Artifact - Must use in dungeon only! ")
 
-local Artifact = {
+local Item = {
     "Eightgates",
     "Ultrainstinct",
 }
 
-section1:addDropdown("Artifact", Artifact, function(text)
-    getgenv().Artifact = text
+section1:addDropdown("Artifact", Item, function(text)
+    getgenv().Item = text
 end)
 
 section1:addButton("Change!", function()
     local args = {
-        [1] = getgenv().Dagger,
-        [2] = "Artifact",
+        [1] = getgenv().Item,
+        [2] = "Item",
         [3] = "None"
     }
 
