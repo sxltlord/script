@@ -1,7 +1,7 @@
 --setclipboard(tostring(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame)) --หา x y z
 
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local Window = Library.CreateLib("Roblox Innovation Awards Voting Hub made by Sxlt", "Midnight")
+local Window = Library.CreateLib("Roblox Innovation Awards Voting Hub", "Midnight")
 
 local Tab = Window:NewTab("Free event items")
 local Section = Tab:NewSection("Free items")
